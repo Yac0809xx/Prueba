@@ -70,3 +70,145 @@
   </div>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros Gatos - Gatbnb</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f0;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffcc80;
+      padding: 20px;
+      border-bottom: 3px solid #ffa726;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #d17b00;
+    }
+
+    .gato {
+      display: inline-block;
+      width: 260px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #ffa726;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #fb8c00;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+    }
+
+    select {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #ffe0b2;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐾 Gatbnb 🐾</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="gatos.html">Nuestros Gatos</a>
+      <a href="seguridad.html">Seguridad y Contacto</a>
+    </nav>
+  </header>
+
+  <h2>Nuestros Gatos Anfitriones</h2>
+
+  <div class="gato">
+    <img src="https://placekitten.com/300/200" alt="Michi Deluxe">
+    <h3>Michi Deluxe</h3>
+    <p>Gato tranquilo que adora dormir en los cojines. Ideal para quienes buscan relajarse.</p>
+    <button>Reservar este gato</button>
+  </div>
+
+  <div class="gato">
+    <img src="https://placekitten.com/301/200" alt="Pelusa Suite">
+    <h3>Pelusa Suite</h3>
+    <p>Curiosa y juguetona, siempre dispuesta a seguirte por toda la habitación.</p>
+    <button>Reservar este gato</button>
+  </div>
+
+  <div class="gato">
+    <img src="https://placekitten.com/302/200" alt="Bigotes Loft">
+    <h3>Bigotes Loft</h3>
+    <p>El más aventurero: le encanta mirar por la ventana y ronronear al sol.</p>
+    <button>Reservar este gato</button>
+  </div>
+
+  <section>
+    <h2>Elige el tipo de habitación que más te gusta</h2>
+    <p>Selecciona el tipo de habitación ideal para ti y tu gato anfitrión:</p>
+    <label for="habitacion">Tipo de habitación:</label>
+    <br>
+    <select id="habitacion" name="habitacion">
+      <option value="">-- Selecciona una opción --</option>
+      <option value="suite-cojines">Suite de Cojines (cómoda y tranquila)</option>
+      <option value="ventana-soleada">Ventana Soleada (ideal para gatos curiosos)</option>
+      <option value="habitacion-juguetes">Habitación con Juguetes (diversión garantizada)</option>
+      <option value="premium">Habitación Premium con vistas al jardín</option>
+    </select>
+  </section>
+
+  <footer>
+    <p>Proyecto escolar - Desarrollado por Yac0908xx 🐱</p>
+  </footer>
+</body>
+</html>

@@ -3,127 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GatoAirbnb - Inicio</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff8f0;
-      color: #333;
-    }
-
-    header {
-      background-color: #ffcc80;
-      padding: 20px;
-      border-bottom: 3px solid #ffa726;
-      text-align: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      margin: 0 10px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #d17b00;
-    }
-
-    .bienvenida {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #ffe0b2;
-    }
-
-    .bienvenida h1 {
-      font-size: 2.5em;
-      color: #d17b00;
-      margin-bottom: 10px;
-    }
-
-    .contenido {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 40px auto;
-      gap: 40px;
-      padding: 0 20px;
-    }
-
-    .contenido img {
-      width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .texto {
-      max-width: 500px;
-    }
-
-    .texto h2 {
-      color: #d17b00;
-    }
-
-    .texto p {
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #ffe0b2;
-      padding: 10px;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="gatos.html">Nuestros Gatos</a>
-      <a href="seguridad.html">Seguridad y Contacto</a>
-    </nav>
-  </header>
-
-  <section class="bienvenida">
-    <h1>🐾 Bienvenido a GatoAirbnb 🐾</h1>
-    <p>El lugar donde cada habitación viene con un amigo peludo que te acompaña durante tu estancia.</p>
-  </section>
-
-  <section class="contenido">
-    <img src="https://placekitten.com/500/400" alt="Habitación con gato feliz">
-    <div class="texto">
-      <h2>¿Qué es GatoAirbnb?</h2>
-      <p>
-        <strong>GatoAirbnb</strong> es un proyecto creado por <strong>Yac0908xx</strong> inspirado en el concepto de Airbnb,
-        pero con un toque único: ¡en cada habitación vive un gatito que será tu compañero durante la estancia! 🐱  
-      </p>
-      <h3>¿Por qué lo hacemos?</h3>
-      <p>
-        Porque creemos que los gatos pueden hacer más felices los viajes. 
-        Queremos crear experiencias acogedoras, llenas de cariño y tranquilidad, 
-        tanto para los huéspedes como para nuestros adorables mininos.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <p>Proyecto escolar - Desarrollado por Yac0908xx 🐱</p>
-  </footer>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GatoAirbnb - Tu Airbnb para gatos felices</title>
+  <title>Bienvenidos - GatoAirbnb</title>
   <style>
     /* 🌈 Estilos generales */
     body {
@@ -136,89 +16,109 @@
 
     /* 🐾 Encabezado */
     header {
-      background-color: #ffcc80;
-      padding: 20px;
-      border-bottom: 3px solid #ffa726;
+      background: linear-gradient(90deg, #ffd699, #ffccbc);
+      padding: 25px;
       text-align: center;
+      border-bottom: 3px solid #ffa726;
     }
 
+    header h1 {
+      font-size: 2.5em;
+      color: #d17b00;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #6b4a00;
+      font-weight: 500;
+    }
+
+    /* 🔗 Navegación */
     nav a {
       text-decoration: none;
       color: #333;
       margin: 0 10px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: #d17b00;
     }
 
-    /* 📸 Contenedor principal */
-    .intro-container {
+    /* 🐱 Secciones principales */
+    .seccion {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       align-items: center;
-      gap: 30px;
-      max-width: 1000px;
-      margin: 40px auto;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      justify-content: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 60px auto;
       padding: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* 🖼️ Imagen (izquierda) */
-    .intro-container img {
+    .seccion img {
       width: 400px;
-      border-radius: 15px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    /* 📝 Texto (derecha) */
-    .intro-text {
+    .texto {
       max-width: 500px;
       text-align: left;
     }
 
-    .intro-text h2 {
+    .texto h2 {
       color: #d17b00;
       margin-bottom: 10px;
     }
 
-    .intro-text p {
-      line-height: 1.6;
-      margin-bottom: 20px;
+    .texto p {
+      line-height: 1.7;
+      color: #444;
     }
 
-    /* 📱 Adaptable a móviles */
-    @media (max-width: 800px) {
-      .intro-container {
+    /* ✨ Invertir orden para segunda sección */
+    .invertido {
+      flex-direction: row-reverse;
+    }
+
+    /* 📱 Adaptable */
+    @media (max-width: 850px) {
+      .seccion {
+        flex-direction: column;
+        text-align: center;
+      }
+      .invertido {
         flex-direction: column;
       }
-      .intro-container img {
+      .seccion img {
         width: 90%;
       }
-      .intro-text {
+      .texto {
         text-align: center;
       }
     }
 
-    /* ⚙️ Pie de página */
+    /* 🧡 Footer */
     footer {
       text-align: center;
-      margin-top: 40px;
       background-color: #ffe0b2;
-      padding: 10px;
+      padding: 15px;
       font-size: 0.9em;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
   <!-- 🐾 ENCABEZADO -->
   <header>
-    <h1>🐾 GatoAirbnb 🐾</h1>
-    <h2>Tu Airbnb donde cada habitación viene con un gato feliz</h2>
+    <h1>🐾 Bienvenidos a GatoAirbnb 🐾</h1>
+    <p>El lugar donde cada habitación viene con un amigo peludo que te acompaña durante tu estancia.</p>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="gatos.html">Nuestros Gatos</a>
@@ -226,36 +126,37 @@
     </nav>
   </header>
 
-  <!-- 🏠 CONTENIDO PRINCIPAL -->
-  <main>
-    <section class="intro-container">
-      <!-- 📸 FOTO IZQUIERDA -->
-      <img src="https://placekitten.com/500/400" alt="Foto del Airbnb de gatos">
+  <!-- 🏠 SECCIÓN 1: Qué es GatoAirbnb -->
+  <section class="seccion">
+    <img src="https://placekitten.com/500/400" alt="Habitación de GatoAirbnb con gato">
+    <div class="texto">
+      <h2>¿Qué es GatoAirbnb?</h2>
+      <p>
+        <strong>GatoAirbnb</strong> es un alojamiento único inspirado en el concepto de Airbnb,
+        pero con un toque especial: ¡cada habitación tiene su propio gato residente! 🐱  
+        Nuestro objetivo es que vivas una experiencia cálida, divertida y relajante, 
+        compartiendo tu estancia con un adorable compañero felino.
+      </p>
+    </div>
+  </section>
 
-      <!-- 📝 TEXTO DERECHA -->
-      <div class="intro-text">
-        <h2>¿Qué es GatoAirbnb?</h2>
-        <p>
-          <strong>GatoAirbnb</strong> es un alojamiento único inspirado en el concepto de Airbnb, 
-          pero pensado especialmente para los amantes de los gatos.  
-          Aquí, cada habitación viene acompañada por un gatito que será tu compañero durante tu estancia.  
-          Nuestro objetivo es ofrecer un espacio donde humanos y gatos disfruten de una experiencia cómoda, divertida y segura. 🐱
-        </p>
-
-        <h2>¿Por qué lo hacemos?</h2>
-        <p>
-          Porque creemos que los gatos tienen una magia especial: transmiten calma, compañía y alegría.  
-          En <strong>GatoAirbnb</strong> queremos unir esa energía positiva con el descanso de las personas.  
-          Además, este proyecto promueve el respeto y cuidado hacia los animales, recordando que ellos también merecen su propio hogar lleno de amor. 💛
-        </p>
-      </div>
-    </section>
-  </main>
+  <!-- 💛 SECCIÓN 2: Por qué lo hacemos -->
+  <section class="seccion invertido">
+    <img src="https://placekitten.com/501/400" alt="Gato descansando feliz en GatoAirbnb">
+    <div class="texto">
+      <h2>¿Por qué lo hacemos?</h2>
+      <p>
+        Porque creemos que los gatos tienen una magia especial: transmiten calma, compañía y alegría.  
+        En <strong>GatoAirbnb</strong> queremos unir esa energía positiva con el descanso de las personas, 
+        creando momentos únicos donde humanos y gatos puedan disfrutar juntos.  
+        Además, fomentamos el amor y respeto hacia los animales, recordando que ellos también merecen hogares llenos de cariño. 💕
+      </p>
+    </div>
+  </section>
 
   <!-- 🐾 PIE DE PÁGINA -->
   <footer>
-    <p>Proyecto escolar - Desarrollado por Yac0908xx 🐱</p>
+    <p>Proyecto escolar - Desarrollado con cariño por Yac0908xx 🐱</p>
   </footer>
 </body>
 </html>
-

@@ -71,3 +71,130 @@
   </footer>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatbnb - Tu Airbnb para gatos felices</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffcc80;
+      padding: 20px;
+      border-bottom: 3px solid #ffa726;
+      text-align: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #d17b00;
+    }
+
+    /* 🔹 Contenedor principal */
+    .intro-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    /* 🔹 Imagen a la izquierda */
+    .intro-container img {
+      width: 400px;
+      border-radius: 15px;
+    }
+
+    /* 🔹 Texto a la derecha */
+    .intro-text {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .intro-text h2 {
+      color: #d17b00;
+    }
+
+    .intro-text p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      background-color: #ffe0b2;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+
+    /* 🔹 Adaptable en pantallas pequeñas */
+    @media (max-width: 800px) {
+      .intro-container {
+        flex-direction: column;
+      }
+      .intro-container img {
+        width: 90%;
+      }
+      .intro-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐾 Gatbnb 🐾</h1>
+    <h2>Tu Airbnb donde cada habitación viene con un gato feliz</h2>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="gatos.html">Nuestros Gatos</a>
+      <a href="seguridad.html">Seguridad y Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-container">
+      <!-- 📸 FOTO A LA IZQUIERDA -->
+      <img src="https://placekitten.com/500/400" alt="Foto del Airbnb de gatos">
+
+      <!-- 📝 TEXTO A LA DERECHA -->
+      <div class="intro-text">
+        <h2>¿Qué es Gatbnb?</h2>
+        <p><strong>Gatbnb</strong> es un alojamiento inspirado en el concepto de Airbnb, pero pensado especialmente para los amantes de los gatos. Aquí, cada habitación viene acompañada por un gatito que será tu compañero durante tu estancia. 🐱</p>
+
+        <h2>¿Por qué lo hacemos?</h2>
+        <p>Creemos que los gatos transmiten calma, compañía y alegría. Nuestro objetivo es crear un espacio donde las personas puedan relajarse y disfrutar del cariño felino mientras contribuyen al bienestar animal.</p>
+
+        <h2>¿En qué nos ayuda?</h2>
+        <p>Este proyecto nos permite aprender sobre diseño web, trabajo en equipo y creatividad. Además, ayuda a concienciar sobre la adopción y el respeto hacia los gatos. 🧡</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto escolar - Desarrollado por Yac0908xx 🐱</p>
+  </footer>
+</body>
+</html>
+

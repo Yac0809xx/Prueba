@@ -5,53 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seguridad y Contacto - GatoAirbnb</title>
   <style>
+    /* 🌸 Colores principales */
+    :root {
+      color-scheme: light; /* evita el modo oscuro automático */
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff0f6; /* fondo rosado muy suave */
+      background-color: #fff0f6; /* fondo rosado pastel */
       background-image: url('https://i.imgur.com/xBvGQ4U.png'); /* fondo con gatitos */
-      background-size: 200px;
+      background-size: 250px;
       background-repeat: repeat;
       color: #333;
       text-align: center;
     }
 
+    /* 💕 Encabezado */
     header {
-      background: linear-gradient(90deg, #ffa6c9, #ffd699); /* rosa + naranja pastel */
-      padding: 20px;
+      background: linear-gradient(90deg, #ffb6c1, #ffe0b2); /* rosa y amarillo pastel */
+      padding: 25px;
       border-bottom: 4px solid #ff9e80;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
+    header h1 {
+      color: #d17b00;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    /* 🔗 Navegación */
     nav a {
       text-decoration: none;
       color: #333;
       margin: 0 10px;
       font-weight: bold;
-      background-color: rgba(255, 255, 255, 0.6);
-      padding: 5px 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 6px 12px;
       border-radius: 10px;
       transition: 0.3s;
     }
 
     nav a:hover {
-      background-color: #ffb6b9;
-      color: white;
+      background-color: #ffd1dc;
+      color: #d17b00;
     }
 
+    /* 📜 Contenido principal */
     main {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 50px auto;
       background-color: rgba(255, 255, 255, 0.9);
       padding: 30px;
       border-radius: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(255, 183, 197, 0.4);
     }
 
     h1 {
       color: #ff7f50;
-      text-shadow: 1px 1px 2px #fff;
     }
 
     h2 {
@@ -67,13 +79,15 @@
       line-height: 1.8;
       list-style-type: "🐾 ";
       padding-left: 20px;
+      color: #444;
     }
 
+    /* 📞 Contacto */
     .contacto {
-      background: linear-gradient(135deg, #ffe0e9, #fff5e0);
+      background: linear-gradient(135deg, #ffe4ec, #fff8e1);
       border-radius: 20px;
       padding: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
     }
 
@@ -94,6 +108,7 @@
       text-decoration: underline;
     }
 
+    /* 🌸 Pie de página */
     footer {
       background: linear-gradient(90deg, #ffd1dc, #ffe0b2);
       padding: 15px;

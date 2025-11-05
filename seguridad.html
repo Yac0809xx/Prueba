@@ -5,43 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seguridad y Contacto - GatoAirbnb</title>
   <style>
-    /* 🌸 Colores principales */
     :root {
-      color-scheme: light; /* evita modo oscuro automático */
+      color-scheme: light;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff8b3; /* 🌼 amarillo pastel */
+      background-color: #fff8b3; /* 🌼 Amarillo pastel */
       color: #333;
       text-align: center;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* 🐱 Fondo con emojis decorativos */
+    /* 🐱 Fondo lleno de emojis cutes */
     body::before {
-      content: "🐱 🐾 🐈 🐱 🐾 🐈 🐱 🐾 🐈 🐱 🐾 🐈 🐱 🐾 🐈 🐱 🐾 🐈";
+      content: "🐱 🐾 🐈 💖 🌸 😺 🌟 🐾 🐱 🐈 💕 💫 😻 🧡 🐾 🌸 🐈 😺 💖 🐾 🐱 🌟 😻 💕 🐈 🧡 💫 🐾 🐱 🌸 💖 😺 🌟 🐈 🐾 💕 😻 💫 🐱 🌸 💖 🐾 🐈 😺 🧡 🌟 😻 💕 🐾 🌸 🐱 💖";
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      font-size: 3rem;
-      color: rgba(255, 200, 0, 0.25);
-      line-height: 2;
-      text-align: center;
+      width: 200%;
+      height: 200%;
+      font-size: 2.5rem;
+      line-height: 1.5;
+      opacity: 0.25;
       white-space: pre-wrap;
-      z-index: 0;
+      text-align: center;
       pointer-events: none;
-      animation: flotar 10s linear infinite alternate;
+      z-index: 0;
+      animation: flotar 12s linear infinite alternate;
     }
 
     @keyframes flotar {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(20px); }
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-20px, 20px); }
+      100% { transform: translate(20px, -20px); }
     }
 
     /* 💕 Encabezado */
@@ -59,7 +59,6 @@
       text-shadow: 1px 1px 2px #fff;
     }
 
-    /* 🔗 Navegación */
     nav a {
       text-decoration: none;
       color: #333;
@@ -76,7 +75,6 @@
       color: #d17b00;
     }
 
-    /* 📜 Contenido principal */
     main {
       max-width: 900px;
       margin: 50px auto;
@@ -88,17 +86,8 @@
       z-index: 2;
     }
 
-    h1 {
-      color: #ff7f50;
-    }
-
     h2 {
       color: #ff80ab;
-    }
-
-    section {
-      margin-bottom: 40px;
-      text-align: left;
     }
 
     ul {
@@ -108,7 +97,6 @@
       color: #444;
     }
 
-    /* 📞 Contacto */
     .contacto {
       background: linear-gradient(135deg, #fff8e1, #ffe4ec);
       border-radius: 20px;
@@ -134,7 +122,6 @@
       text-decoration: underline;
     }
 
-    /* 🌸 Pie de página */
     footer {
       background: linear-gradient(90deg, #ffe0b2, #ffd1dc);
       padding: 15px;

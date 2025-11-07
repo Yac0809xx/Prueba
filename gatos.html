@@ -123,18 +123,27 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       max-width: 900px;
-      text-align: left;
+      text-align: center;
       position: relative;
       z-index: 2;
     }
 
     .habitaciones h2 {
       color: #d17b00;
-      text-align: center;
+    }
+
+    select {
+      display: block;
+      margin: 15px auto 25px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background-color: #fff8e1;
     }
 
     .habitacion-item {
-      margin-bottom: 30px;
+      display: none; /* Ocultas por defecto */
       text-align: center;
     }
 
@@ -143,15 +152,6 @@
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       margin-bottom: 10px;
-    }
-
-    select {
-      display: block;
-      margin: 15px auto;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1em;
     }
 
     footer {
@@ -203,30 +203,22 @@
   <!-- 🏠 HABITACIONES -->
   <section class="habitaciones">
     <h2>Tipos de habitación disponibles 🏡</h2>
-    <p style="text-align:center;">Elige la habitación perfecta para tu estancia y la de tu gato anfitrión:</p>
+    <p>Elige la habitación perfecta para tu estancia y la de tu gato anfitrión:</p>
 
-    <div class="habitacion-item">
-      <img src="descargar4.webp" alt="Habitación Cozy">
-      <p><strong>Habitación Cozy:</strong> Pequeña y acogedora, con una cama blanda y manta de lana.</p>
-    </div>
-
-    <div class="habitacion-item">
-      <img src="descargar5.webp" alt="Habitación Deluxe">
-      <p><strong>Habitación Deluxe:</strong> Más amplia, con rascador y ventana soleada.</p>
-    </div>
-
-    <div class="habitacion-item">
-      <img src="OIP1.webp" alt="Habitación Premium">
-      <p><strong>Habitación Premium:</strong> Incluye sofá personal, juguetes y balcón privado.</p>
-    </div>
-
-    <label for="habitacion"><strong>Elige tu tipo de habitación:</strong></label>
+    <!-- 👉 Selector arriba -->
+    <label for="habitacion"><strong>Selecciona una habitación:</strong></label>
     <select id="habitacion" name="habitacion">
-      <option value="default">Selecciona una habitación</option>
+      <option value="default">-- Elige una opción --</option>
       <option value="cozy">Habitación Cozy</option>
       <option value="deluxe">Habitación Deluxe</option>
       <option value="premium">Habitación Premium</option>
     </select>
+
+    <!-- 👉 Contenedor donde se mostrará solo la elegida -->
+    <div id="habitacion-info" class="habitacion-item">
+      <img id="habitacion-imagen" src="" alt="">
+      <p id="habitacion-descripcion"></p>
+    </div>
   </section>
 
   <footer>
@@ -235,18 +227,27 @@
 
   <script>
     const select = document.getElementById('habitacion');
-    const body = document.body;
+    const info = document.getElementById('habitacion-info');
+    const img = document.getElementById('habitacion-imagen');
+    const desc = document.getElementById('habitacion-descripcion');
 
     select.addEventListener('change', () => {
       const tipo = select.value;
+
       if (tipo === 'cozy') {
-        body.style.backgroundImage = "url('descargar4.webp')";
+        img.src = 'descargar4.webp';
+        desc.textContent = 'Habitación Cozy: Pequeña y acogedora, con una cama blanda y manta de lana.';
+        info.style.display = 'block';
       } else if (tipo === 'deluxe') {
-        body.style.backgroundImage = "url('descargar5.webp')";
+        img.src = 'descargar5.webp';
+        desc.textContent = 'Habitación Deluxe: Más amplia, con rascador y ventana soleada.';
+        info.style.display = 'block';
       } else if (tipo === 'premium') {
-        body.style.backgroundImage = "url('OIP1.webp')";
+        img.src = 'OIP1.webp';
+        desc.textContent = 'Habitación Premium: Incluye sofá personal, juguetes y balcón privado.';
+        info.style.display = 'block';
       } else {
-        body.style.backgroundImage = 'none';
+        info.style.display = 'none';
       }
     });
   </script>

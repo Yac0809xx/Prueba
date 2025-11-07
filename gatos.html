@@ -14,35 +14,6 @@
       text-align: center;
       overflow-x: hidden;
       position: relative;
-      min-height: 100vh;
-    }
-
-    /* ✨ Fondo animado de huellitas */
-    .paw-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .paw-emoji {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0;
-      animation: floatPaw 6s infinite ease-in-out;
-      color: rgba(0, 0, 0, 0.1);
-    }
-
-    @keyframes floatPaw {
-      0% { opacity: 0; transform: translateY(0) scale(1) rotate(0deg); }
-      25% { opacity: 1; transform: translateY(-20px) scale(1.2) rotate(15deg); }
-      50% { opacity: 0.8; transform: translateY(-40px) scale(1.1) rotate(-15deg); }
-      75% { opacity: 0.5; transform: translateY(-20px) scale(1.3) rotate(10deg); }
-      100% { opacity: 0; transform: translateY(0) scale(1) rotate(0deg); }
     }
 
     header {
@@ -50,8 +21,6 @@
       padding: 20px;
       border-bottom: 3px solid #ffa726;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 2;
     }
 
     nav a {
@@ -77,8 +46,6 @@
       gap: 30px;
       max-width: 1000px;
       margin: 40px auto;
-      position: relative;
-      z-index: 2;
     }
 
     .gato {
@@ -119,8 +86,6 @@
       padding: 20px;
       border-radius: 15px;
       max-width: 900px;
-      position: relative;
-      z-index: 2;
     }
 
     select {
@@ -174,11 +139,9 @@
       padding: 10px;
       margin-top: 40px;
       font-size: 0.9em;
-      position: relative;
-      z-index: 2;
     }
 
-    /* 🐾 Animación de clic en botón */
+    /* ✨ Animación de huellitas */
     .paw {
       position: absolute;
       font-size: 2rem;
@@ -193,9 +156,6 @@
   </style>
 </head>
 <body>
-  <!-- 🐾 Fondo animado -->
-  <div class="paw-bg" id="paw-bg"></div>
-
   <header>
     <h1>🐾 Nuestros Gatos - GatoAirbnb 🐾</h1>
     <nav>
@@ -254,21 +214,6 @@
   </footer>
 
   <script>
-    // 🌟 Fondo con huellitas flotantes
-    const pawBg = document.getElementById('paw-bg');
-    const pawCount = 25; // número de huellitas
-
-    for (let i = 0; i < pawCount; i++) {
-      const paw = document.createElement('div');
-      paw.textContent = '🐾';
-      paw.classList.add('paw-emoji');
-      paw.style.left = Math.random() * 100 + '%';
-      paw.style.top = Math.random() * 100 + '%';
-      paw.style.animationDelay = (Math.random() * 5) + 's';
-      paw.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-      pawBg.appendChild(paw);
-    }
-
     // 🏡 Cambio de imagen según habitación
     const select = document.getElementById('habitacion');
     const info = document.getElementById('habitacion-info');
@@ -302,27 +247,33 @@
       document.body.appendChild(paw);
       paw.style.left = event.pageX + 'px';
       paw.style.top = event.pageY + 'px';
+
       setTimeout(() => paw.remove(), 1000);
     }
-// 🐾 Efecto de huellitas al hacer clic en "Reservar"
-function showPaw(event) {
-  const paw = document.createElement('div');
-  paw.textContent = '🐾';
-  paw.classList.add('paw');
-  document.body.appendChild(paw);
-  paw.style.left = event.pageX + 'px';
-  paw.style.top = event.pageY + 'px';
-  setTimeout(() => paw.remove(), 1000);
-}
-
-document.querySelectorAll('.boton-reservar').forEach(btn => {
-  btn.addEventListener('click', showPaw);
-});
 
     document.querySelectorAll('.boton-reservar').forEach(btn => {
       btn.addEventListener('click', showPaw);
     });
   </script>
+  <script>
+  // 🐾 Generador automático de huellitas animadas
+  const pawBg = document.getElementById('paw-bg');
+
+  function crearPaw() {
+    const paw = document.createElement('div');
+    paw.textContent = '🐾';
+    paw.classList.add('paw');
+    paw.style.left = Math.random() * 100 + 'vw';
+    paw.style.top = Math.random() * 100 + 'vh';
+    paw.style.animationDuration = (4 + Math.random() * 4) + 's';
+    pawBg.appendChild(paw);
+    setTimeout(() => paw.remove(), 8000);
+  }
+
+  // Crear huellitas cada 400 ms
+  setInterval(crearPaw, 400);
+</script>
+
 </body>
 </html>
 

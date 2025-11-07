@@ -5,46 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuestros Gatos - GatoAirbnb</title>
   <style>
-    /* 🌼 Fondo general */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff8b3; /* Amarillo pastel */
+      background-color: #fff8b3;
       color: #333;
       text-align: center;
-      position: relative;
       overflow-x: hidden;
-      transition: background-image 0.8s ease-in-out; /* 💫 Transición suave */
-      background-size: cover;
-      background-position: center;
+      position: relative;
     }
 
-    /* 🐾 Fondo decorativo con emojis */
-    body::before {
-      content: "🐱 🐾 🐈 💖 🐾 🐱 🐾 🐈 💕 🐾 🐱 🐾 🐈 💫 🐾 🐱 🐾 🐈 🌸";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      font-size: 3rem;
-      color: rgba(255, 180, 0, 0.25);
-      text-align: center;
-      line-height: 3;
-      white-space: pre-wrap;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* 🐾 Encabezado */
     header {
       background: linear-gradient(90deg, #ffe082, #ffd1dc);
       padding: 20px;
       border-bottom: 3px solid #ffa726;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 2;
     }
 
     nav a {
@@ -63,7 +39,6 @@
       color: #d17b00;
     }
 
-    /* 🐱 Tarjetas de gatos */
     .gatos-container {
       display: flex;
       flex-wrap: wrap;
@@ -71,8 +46,6 @@
       gap: 30px;
       max-width: 1000px;
       margin: 40px auto;
-      position: relative;
-      z-index: 2;
     }
 
     .gato {
@@ -85,18 +58,12 @@
       transition: transform 0.2s;
     }
 
-    .gato:hover {
-      transform: scale(1.03);
-    }
+    .gato:hover { transform: scale(1.03); }
 
     .gato img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 10px;
-    }
-
-    .gato h3 {
-      color: #ff7f50;
     }
 
     .boton-reservar {
@@ -111,62 +78,84 @@
       transition: 0.3s;
     }
 
-    .boton-reservar:hover {
-      background-color: #ff80ab;
-    }
+    .boton-reservar:hover { background-color: #ff80ab; }
 
-    /* 🏠 Habitaciones */
     .habitaciones {
       background-color: rgba(255, 255, 255, 0.95);
       margin: 50px auto;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       max-width: 900px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .habitaciones h2 {
-      color: #d17b00;
     }
 
     select {
       display: block;
-      margin: 15px auto 25px;
+      margin: 15px auto;
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 1em;
       background-color: #fff8e1;
-    }
-
-    .habitacion-item {
-      display: none; /* Ocultas por defecto */
-      text-align: center;
     }
 
     .habitacion-item img {
       width: 80%;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 10px;
+      margin-top: 10px;
     }
+
+    .formulario-reserva {
+      margin-top: 30px;
+      background-color: #fff3e0;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .formulario-reserva input, .formulario-reserva select {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .formulario-reserva button {
+      background-color: #ffa726;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .formulario-reserva button:hover { background-color: #ff80ab; }
 
     footer {
       background: linear-gradient(90deg, #ffe0b2, #ffd1dc);
       padding: 10px;
       margin-top: 40px;
       font-size: 0.9em;
-      color: #333;
-      position: relative;
-      z-index: 2;
+    }
+
+    /* ✨ Animación de huellitas */
+    .paw {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <!-- 🐾 ENCABEZADO -->
   <header>
     <h1>🐾 Nuestros Gatos - GatoAirbnb 🐾</h1>
     <nav>
@@ -176,56 +165,56 @@
     </nav>
   </header>
 
-  <!-- 🐈 SECCIÓN DE GATOS -->
   <section class="gatos-container">
     <div class="gato">
       <img src="descargar2.webp" alt="Michi Deluxe">
       <h3>Michi Deluxe</h3>
-      <p><strong>Tipo:</strong> Tranquilo y cariñoso 💤<br>Ama las siestas largas y las caricias suaves.</p>
+      <p>Tranquilo y cariñoso 💤</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
 
     <div class="gato">
       <img src="OIP.webp" alt="Pelusa Suite">
       <h3>Pelusa Suite</h3>
-      <p><strong>Tipo:</strong> Juguetona y curiosa 🎾<br>Siempre buscando aventuras y nuevos amigos.</p>
+      <p>Juguetona y curiosa 🎾</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
 
     <div class="gato">
       <img src="descargar3.webp" alt="Bigotes Loft">
       <h3>Bigotes Loft</h3>
-      <p><strong>Tipo:</strong> Aventurero y observador 🌞<br>Disfruta de las vistas y el calorcito del sol.</p>
+      <p>Aventurero y observador 🌞</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
   </section>
 
-  <!-- 🏠 HABITACIONES -->
   <section class="habitaciones">
     <h2>Tipos de habitación disponibles 🏡</h2>
-    <p>Elige la habitación perfecta para tu estancia y la de tu gato anfitrión:</p>
-
-    <!-- 👉 Selector arriba -->
-    <label for="habitacion"><strong>Selecciona una habitación:</strong></label>
-    <select id="habitacion" name="habitacion">
-      <option value="default">-- Elige una opción --</option>
-      <option value="cozy">Habitación Cozy</option>
-      <option value="deluxe">Habitación Deluxe</option>
-      <option value="premium">Habitación Premium</option>
+    <select id="habitacion">
+      <option value="">-- Elige una habitación --</option>
+      <option value="cozy">Cozy</option>
+      <option value="deluxe">Deluxe</option>
+      <option value="premium">Premium</option>
     </select>
-
-    <!-- 👉 Contenedor donde se mostrará solo la elegida -->
     <div id="habitacion-info" class="habitacion-item">
-      <img id="habitacion-imagen" src="" alt="">
+      <img id="habitacion-imagen" src="">
       <p id="habitacion-descripcion"></p>
+    </div>
+
+    <div class="formulario-reserva">
+      <h3>✨ Reserva tu habitación ✨</h3>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <button class="boton-reservar">Reservar ahora 🐾</button>
     </div>
   </section>
 
   <footer>
-    <p>🌸 Proyecto escolar - Desarrollado con cariño por <strong>Yac0908xx</strong> 🐱</p>
+    <p>🌸 Proyecto escolar - Hecho con cariño por <strong>Yac0908xx</strong> 🐱</p>
   </footer>
 
   <script>
+    // 🏡 Cambio de imagen según habitación
     const select = document.getElementById('habitacion');
     const info = document.getElementById('habitacion-info');
     const img = document.getElementById('habitacion-imagen');
@@ -233,23 +222,39 @@
 
     select.addEventListener('change', () => {
       const tipo = select.value;
-
       if (tipo === 'cozy') {
         img.src = 'descargar4.webp';
-        desc.textContent = 'Habitación Cozy: Pequeña y acogedora, con una cama blanda y manta de lana.';
+        desc.textContent = 'Habitación Cozy: Pequeña y acogedora 💛';
         info.style.display = 'block';
       } else if (tipo === 'deluxe') {
         img.src = 'descargar5.webp';
-        desc.textContent = 'Habitación Deluxe: Más amplia, con rascador y ventana soleada.';
+        desc.textContent = 'Habitación Deluxe: Espaciosa y luminosa 🌞';
         info.style.display = 'block';
       } else if (tipo === 'premium') {
         img.src = 'OIP1.webp';
-        desc.textContent = 'Habitación Premium: Incluye sofá personal, juguetes y balcón privado.';
+        desc.textContent = 'Habitación Premium: Con balcón y juguetes ✨';
         info.style.display = 'block';
       } else {
         info.style.display = 'none';
       }
     });
+
+    // 🐾 Efecto de huellitas al hacer clic en "Reservar"
+    function showPaw(event) {
+      const paw = document.createElement('div');
+      paw.textContent = '🐾';
+      paw.classList.add('paw');
+      document.body.appendChild(paw);
+      paw.style.left = event.pageX + 'px';
+      paw.style.top = event.pageY + 'px';
+
+      setTimeout(() => paw.remove(), 1000);
+    }
+
+    document.querySelectorAll('.boton-reservar').forEach(btn => {
+      btn.addEventListener('click', showPaw);
+    });
   </script>
 </body>
 </html>
+

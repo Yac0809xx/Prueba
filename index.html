@@ -5,7 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenidos - GatoAirbnb</title>
   <style>
-    /* 🌈 Estilos generales */
+    /* /* 🌟 Splash screen */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #d17b00;
+  transition: opacity 1s ease;
+}
+
+#splash h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#splash p {
+  font-size: 1.5rem;
+}
+*/
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -216,4 +243,62 @@
   </script>
 </body>
 </html>
+
+<body>
+  <!-- 🌸 Splash screen de bienvenida -->
+  <div id="splash">
+    <h1>🐾 Bienvenidos a GatoAirbnb 🐾</h1>
+    <p>Tu estancia con gatitos empieza aquí 💛</p>
+  </div>
+
+  <!-- 🐾 Fondo animado -->
+  <div class="paw-bg" id="paw-bg"></div>
+
+  <!-- 🐾 ENCABEZADO -->
+  <header>
+    <h1>🐾 Bienvenidos a GatoAirbnb 🐾</h1>
+    <p>El lugar donde cada habitación viene con un amigo peludo que te acompaña durante tu estancia.</p>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="gatos.html">Nuestros Gatos</a>
+      <a href="seguridad.html">Seguridad y Contacto</a>
+    </nav>
+  </header>
+
+  <!-- 🏠 SECCIÓN 1 ... (resto de tu contenido igual) -->
+  ...
+  
+  <!-- ✨ Footer igual -->
+  <footer>
+    <p>Proyecto escolar - Desarrollado con cariño por Yac0908xx 🐱</p>
+  </footer>
+
+  <!-- ✨ Scripts -->
+  <script>
+    // Huellitas animadas
+    const pawBg = document.getElementById('paw-bg');
+
+    function crearPaw() {
+      const paw = document.createElement('div');
+      paw.textContent = '🐾';
+      paw.classList.add('paw');
+      paw.style.left = Math.random() * 100 + 'vw';
+      paw.style.top = Math.random() * 100 + 'vh';
+      paw.style.animationDuration = (4 + Math.random() * 4) + 's';
+      pawBg.appendChild(paw);
+      setTimeout(() => paw.remove(), 8000);
+    }
+    setInterval(crearPaw, 400);
+
+    // Splash screen
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash');
+      setTimeout(() => {
+        splash.style.opacity = '0';
+        setTimeout(() => splash.style.display = 'none', 1000);
+      }, 3000); // 3 segundos de bienvenida
+    });
+  </script>
+  
+</body>
 

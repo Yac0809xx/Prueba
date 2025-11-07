@@ -12,6 +12,34 @@
       padding: 0;
       background-color: #fff8f0;
       color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* 🐾 Fondo animado */
+    .paw-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .paw {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: floatPaw 5s ease-in-out infinite;
+    }
+
+    @keyframes floatPaw {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-50px) scale(1.3); opacity: 0; }
     }
 
     /* 🐾 Encabezado */
@@ -20,6 +48,8 @@
       padding: 25px;
       text-align: center;
       border-bottom: 3px solid #ffa726;
+      position: relative;
+      z-index: 2;
     }
 
     header h1 {
@@ -59,6 +89,8 @@
       background-color: #fff;
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
     }
 
     .seccion img {
@@ -111,10 +143,15 @@
       padding: 15px;
       font-size: 0.9em;
       margin-top: 50px;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
+  <!-- 🐾 Fondo animado -->
+  <div class="paw-bg" id="paw-bg"></div>
+
   <!-- 🐾 ENCABEZADO -->
   <header>
     <h1>🐾 Bienvenidos a GatoAirbnb 🐾</h1>
@@ -158,7 +195,25 @@
   <footer>
     <p>Proyecto escolar - Desarrollado con cariño por Yac0908xx 🐱</p>
   </footer>
+
+  <!-- ✨ Script para las huellitas -->
+  <script>
+    const pawBg = document.getElementById('paw-bg');
+
+    function crearPaw() {
+      const paw = document.createElement('div');
+      paw.textContent = '🐾';
+      paw.classList.add('paw');
+      paw.style.left = Math.random() * 100 + 'vw';
+      paw.style.top = Math.random() * 100 + 'vh';
+      paw.style.animationDuration = (4 + Math.random() * 4) + 's';
+      pawBg.appendChild(paw);
+      setTimeout(() => paw.remove(), 8000);
+    }
+
+    // 🐾 Crear huellitas constantemente
+    setInterval(crearPaw, 400);
+  </script>
 </body>
 </html>
-
 

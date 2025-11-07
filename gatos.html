@@ -304,6 +304,20 @@
       paw.style.top = event.pageY + 'px';
       setTimeout(() => paw.remove(), 1000);
     }
+// 🐾 Efecto de huellitas al hacer clic en "Reservar"
+function showPaw(event) {
+  const paw = document.createElement('div');
+  paw.textContent = '🐾';
+  paw.classList.add('paw');
+  document.body.appendChild(paw);
+  paw.style.left = event.pageX + 'px';
+  paw.style.top = event.pageY + 'px';
+  setTimeout(() => paw.remove(), 1000);
+}
+
+document.querySelectorAll('.boton-reservar').forEach(btn => {
+  btn.addEventListener('click', showPaw);
+});
 
     document.querySelectorAll('.boton-reservar').forEach(btn => {
       btn.addEventListener('click', showPaw);
@@ -311,4 +325,5 @@
   </script>
 </body>
 </html>
+
 

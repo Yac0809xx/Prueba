@@ -1,279 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuestros Gatos - GatoAirbnb</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff8b3;
-      color: #333;
-      text-align: center;
-      overflow-x: hidden;
-      position: relative;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestros Gatos - GatoAirbnb</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family:'Poppins',sans-serif; background:#fffaf0; color:#333; text-align:center; margin:0; }
+header { background:linear-gradient(90deg,#ffe082,#ffd1dc); padding:20px; border-bottom:3px solid #ff9f1c; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+header h1 { color:#d17b00; font-size:2.5rem; margin-bottom:10px; }
+nav a { text-decoration:none; color:#333; margin:0 10px; font-weight:600; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.7); transition:0.3s; }
+nav a:hover { background:#ff9f1c; color:#fff; }
 
-    header {
-      background: linear-gradient(90deg, #ffe082, #ffd1dc);
-      padding: 20px;
-      border-bottom: 3px solid #ffa726;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
+.gatos-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; max-width:1000px; margin:40px auto; padding:0 20px; }
+.gato { background:#fff; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.gato img { width:100%; border-radius:10px; margin-bottom:10px; }
+.gato h3 { margin:15px 0 10px; color:#d17b00; }
+.gato p { font-size:0.95rem; }
+.gato:hover { transform:scale(1.03); box-shadow:0 6px 20px rgba(0,0,0,0.15); }
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      margin: 0 10px;
-      font-weight: bold;
-      background-color: rgba(255, 255, 255, 0.6);
-      padding: 5px 10px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
+.boton-reservar { display:inline-block; background:#ff9f1c; color:#fff; padding:8px 15px; border-radius:10px; font-weight:600; margin-top:10px; transition:0.3s; cursor:pointer; }
+.boton-reservar:hover { background:#ff80ab; }
 
-    nav a:hover {
-      background-color: #ffe0b2;
-      color: #d17b00;
-    }
+footer { background:linear-gradient(90deg,#ffe0b2,#ffd1dc); padding:15px; font-size:0.9em; border-top:3px solid #ffb6b9; box-shadow:0 -3px 10px rgba(0,0,0,0.05); }
 
-    .gatos-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1000px;
-      margin: 40px auto;
-    }
-
-    .gato {
-      width: 280px;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .gato:hover { transform: scale(1.03); }
-
-    .gato img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .boton-reservar {
-      background-color: #ffa726;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
-
-    .boton-reservar:hover { background-color: #ff80ab; }
-
-    .habitaciones {
-      background-color: rgba(255, 255, 255, 0.95);
-      margin: 50px auto;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 900px;
-    }
-
-    select {
-      display: block;
-      margin: 15px auto;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background-color: #fff8e1;
-    }
-
-    .habitacion-item img {
-      width: 80%;
-      border-radius: 20px;
-      margin-top: 10px;
-    }
-
-    .formulario-reserva {
-      margin-top: 30px;
-      background-color: #fff3e0;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .formulario-reserva input, .formulario-reserva select {
-      width: 90%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .formulario-reserva button {
-      background-color: #ffa726;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .formulario-reserva button:hover { background-color: #ff80ab; }
-
-    footer {
-      background: linear-gradient(90deg, #ffe0b2, #ffd1dc);
-      padding: 10px;
-      margin-top: 40px;
-      font-size: 0.9em;
-    }
-
-    /* ✨ Animación de huellitas */
-    .paw {
-      position: absolute;
-      font-size: 2rem;
-      animation: floatUp 1s ease-out forwards;
-      pointer-events: none;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
-    }
-  </style>
+@media(max-width:850px){
+  header h1 { font-size:2rem; }
+  .gato p { font-size:0.9rem; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>🐾 Nuestros Gatos - GatoAirbnb 🐾</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="gatos.html">Nuestros Gatos</a>
-      <a href="seguridad.html">Seguridad y Contacto</a>
-    </nav>
-  </header>
+<header>
+  <h1>🐾 Nuestros Gatos - GatoAirbnb 🐾</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="gatos.html">Nuestros Gatos</a>
+    <a href="seguridad.html">Seguridad y Contacto</a>
+  </nav>
+</header>
 
-  <section class="gatos-container">
-    <div class="gato">
-      <img src="descargar2.webp" alt="Michi Deluxe">
-      <h3>Michi Deluxe</h3>
-      <p>Michi Deluxe es un gato tranquilo y cariñoso que ama dormir junto a la ventana. Le encanta recibir caricias suaves y ronronear mientras te acompaña a leer o tomar un café. Ideal para quienes buscan paz, ternura y compañía silenciosa. 💛</p>
-      <button class="boton-reservar">Reservar este gato</button>
-    </div>
+<section class="gatos-container">
+  <div class="gato">
+    <img src="descargar2.webp" alt="Michi Deluxe">
+    <h3>Michi Deluxe</h3>
+    <p>Michi Deluxe es un gato tranquilo y cariñoso que ama dormir junto a la ventana. Ideal para quienes buscan paz, ternura y compañía silenciosa. 💛</p>
+    <button class="boton-reservar">Reservar este gato</button>
+  </div>
+  <div class="gato">
+    <img src="OIP.webp" alt="Pelusa Suite">
+    <h3>Pelusa Suite</h3>
+    <p>Pelusa es pura energía y alegría. Le encanta explorar y jugar con sus pelotitas. Perfecta para familias o espíritus activos. 🎾</p>
+    <button class="boton-reservar">Reservar este gato</button>
+  </div>
+  <div class="gato">
+    <img src="descargar3.webp" alt="Bigotes Loft">
+    <h3>Bigotes Loft</h3>
+    <p>Bigotes es el explorador del grupo. Le encanta observar todo con calma. Es independiente, pero muy afectuoso cuando te elige. 🌞</p>
+    <button class="boton-reservar">Reservar este gato</button>
+  </div>
+</section>
 
-    <div class="gato">
-      <img src="OIP.webp" alt="Pelusa Suite">
-      <h3>Pelusa Suite</h3>
-      <p>Pelusa es pura energía y alegría. Le encanta explorar, jugar con sus pelotitas y esconderse en los rincones más curiosos. Siempre lista para una aventura o para recibirte con un salto feliz. Perfecta para familias o espíritus activos. 🎾</p>
-      <button class="boton-reservar">Reservar este gato</button>
-    </div>
-
-    <div class="gato">
-      <img src="descargar3.webp" alt="Bigotes Loft">
-      <h3>Bigotes Loft</h3>
-      <p>Bigotes es el explorador del grupo. Le encanta mirar por la ventana y observar todo con una calma curiosa. Es independiente, pero cuando te elige, no se despega. Le gusta dormir en lo alto y compartir momentos de tranquilidad. 🌞</p>
-      <button class="boton-reservar">Reservar este gato</button>
-    </div>
-  </section>
-
-  <section class="habitaciones">
-    <h2>Tipos de habitación disponibles 🏡</h2>
-    <select id="habitacion">
-      <option value="">-- Elige una habitación --</option>
-      <option value="cozy">Cozy</option>
-      <option value="deluxe">Deluxe</option>
-      <option value="premium">Premium</option>
-    </select>
-    <div id="habitacion-info" class="habitacion-item">
-      <img id="habitacion-imagen" src="">
-      <p id="habitacion-descripcion"></p>
-    </div>
-
-    <div class="formulario-reserva">
-      <h3>✨ Reserva tu habitación ✨</h3>
-      <input type="text" placeholder="Tu nombre" required>
-      <input type="email" placeholder="Tu correo" required>
-      <button class="boton-reservar">Reservar ahora 🐾</button>
-    </div>
-  </section>
-
-  <footer>
-    <p>🌸 Proyecto escolar - Hecho con cariño por <strong>Yac0908xx</strong> 🐱</p>
-  </footer>
-
-  <script>
-    // 🏡 Cambio de imagen según habitación
-    const select = document.getElementById('habitacion');
-    const info = document.getElementById('habitacion-info');
-    const img = document.getElementById('habitacion-imagen');
-    const desc = document.getElementById('habitacion-descripcion');
-
-    select.addEventListener('change', () => {
-      const tipo = select.value;
-      if (tipo === 'cozy') {
-        img.src = 'descargar4.webp';
-        desc.textContent = 'Habitación Cozy: Pequeña y acogedora 💛';
-        info.style.display = 'block';
-      } else if (tipo === 'deluxe') {
-        img.src = 'descargar5.webp';
-        desc.textContent = 'Habitación Deluxe: Espaciosa y luminosa 🌞';
-        info.style.display = 'block';
-      } else if (tipo === 'premium') {
-        img.src = 'OIP1.webp';
-        desc.textContent = 'Habitación Premium: Con balcón y juguetes ✨';
-        info.style.display = 'block';
-      } else {
-        info.style.display = 'none';
-      }
-    });
-
-    // 🐾 Efecto de huellitas al hacer clic en "Reservar"
-    function showPaw(event) {
-      const paw = document.createElement('div');
-      paw.textContent = '🐾';
-      paw.classList.add('paw');
-      document.body.appendChild(paw);
-      paw.style.left = event.pageX + 'px';
-      paw.style.top = event.pageY + 'px';
-
-      setTimeout(() => paw.remove(), 1000);
-    }
-
-    document.querySelectorAll('.boton-reservar').forEach(btn => {
-      btn.addEventListener('click', showPaw);
-    });
-  </script>
-  <script>
-  // 🐾 Generador automático de huellitas animadas
-  const pawBg = document.getElementById('paw-bg');
-
-  function crearPaw() {
-    const paw = document.createElement('div');
-    paw.textContent = '🐾';
-    paw.classList.add('paw');
-    paw.style.left = Math.random() * 100 + 'vw';
-    paw.style.top = Math.random() * 100 + 'vh';
-    paw.style.animationDuration = (4 + Math.random() * 4) + 's';
-    pawBg.appendChild(paw);
-    setTimeout(() => paw.remove(), 8000);
-    // Crear huellitas cada 400 ms
-     }
-    
-  setInterval(crearPaw, 400);
-</script>
-
+<footer>
+  <p>🌸 Proyecto escolar - Hecho con cariño por <strong>Yac0908xx</strong> 🐱</p>
+</footer>
 </body>
 </html>
 

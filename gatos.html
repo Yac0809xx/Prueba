@@ -1,215 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuestros Gatos - GatoAirbnb</title>
-
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff8f0;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      overflow-x: hidden;
+    body{
+      font-family:'Poppins',sans-serif;
+      background-color:#fff8f0;
+      margin:0;
+      padding:0;
+      position:relative;
+      overflow-x:hidden;
     }
 
-    /* 🌟 FONDO DE EMOJIS */
-    .emoji-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
+    /* 背景 emoji */
+    .emoji-bg{
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
+    }
+    .emoji{
+      position:absolute;font-size:2rem;opacity:0;animation:floatEmoji 6s ease-in-out infinite;
+    }
+    @keyframes floatEmoji{
+      0%{transform:translateY(20px) scale(1);opacity:0;}
+      20%{opacity:1;}
+      80%{opacity:1;}
+      100%{transform:translateY(-40px) scale(1.4);opacity:0;}
     }
 
-    .emoji {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0;
-      animation: floatEmoji 6s ease-in-out infinite;
+    header{
+      background:linear-gradient(90deg,#ffd699,#ffccbc);
+      padding:25px;text-align:center;border-bottom:3px solid #ffa726;position:relative;z-index:2;
+    }
+    header h1{color:#d17b00;margin:0;}
+    nav a{
+      text-decoration:none;font-weight:600;margin:0 15px;color:#333;transition:0.3s;
+    }
+    nav a:hover{color:#d17b00;}
+
+    .contenedor{
+      max-width:1100px;margin:40px auto;padding:20px;display:flex;flex-wrap:wrap;gap:30px;justify-content:center;position:relative;z-index:2;
     }
 
-    @keyframes floatEmoji {
-      0% { transform: translateY(20px) scale(1); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+    .tarjeta{
+      background:#fff;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      width:300px;padding-bottom:20px;overflow:hidden;transition:0.3s;
     }
+    .tarjeta:hover{transform:scale(1.04);box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+    .tarjeta img{width:100%;height:220px;object-fit:cover;transition:0.4s;}
+    .tarjeta:hover img{transform:scale(1.1);}
+    .info{padding:15px 20px;text-align:center;}
+    .info h3{margin-bottom:8px;color:#d17b00;}
+    .badges{margin-top:5px;margin-bottom:12px;}
+    .badge{display:inline-block;padding:3px 10px;background:#ffd9a3;color:#a06000;border-radius:12px;font-size:0.75rem;margin:2px;font-weight:600;}
+    .review{font-size:0.85rem;margin-top:8px;color:#555;font-style:italic;}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(90deg, #ffd699, #ffccbc);
-      padding: 25px;
-      text-align: center;
-      border-bottom: 3px solid #ffa726;
-      position: relative;
-      z-index: 2;
+    /* 房间选择 */
+    .habitaciones{
+      width:100%;max-width:400px;margin:30px auto;background:#fff3e0;padding:20px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;
     }
-    header h1 {
-      color: #d17b00;
-      margin: 0;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0 15px;
-      color: #333;
-      transition: 0.3s;
-    }
-    nav a:hover { color: #d17b00; }
+    .habitaciones select{width:90%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #ccc;background:#fff8e1;}
+    .habitaciones img{width:80%;border-radius:20px;margin-top:10px;}
+    .habitaciones p{margin-top:10px;color:#444;}
 
-    /* CONTENEDOR */
-    .contenedor {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
+    .btn{
+      display:inline-block;margin-top:12px;padding:12px 20px;font-size:1rem;font-weight:bold;background-color:#ff9f43;color:white;border-radius:12px;text-decoration:none;transition:0.3s;box-shadow:0 4px 0 #cc7d27;cursor:pointer;
     }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 6px 0 #cc7d27;}
 
-    /* TARJETAS */
-    .tarjeta {
-      background: #fff;
-      border-radius: 20px;
-      width: 300px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      padding-bottom: 20px;
-    }
-    .tarjeta:hover {
-      transform: scale(1.04);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
+    footer{background-color:#ffe0b2;text-align:center;padding:15px;margin-top:40px;position:relative;z-index:2;}
 
-    .tarjeta img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      transition: 0.4s;
-    }
-    .tarjeta:hover img {
-      transform: scale(1.1);
-    }
-
-    .info {
-      text-align: center;
-      padding: 15px;
-    }
-
-    .info h3 {
-      color: #d17b00;
-      margin: 5px 0 10px 0;
-    }
-
-    /* BADGES */
-    .badges {
-      margin: 6px 0 12px 0;
-    }
-    .badge {
-      display: inline-block;
-      background: #ffd9a3;
-      color: #a06000;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      margin: 2px;
-      font-weight: 600;
-    }
-
-    /* REVIEW */
-    .review {
-      font-size: 0.85rem;
-      color: #555;
-      margin: 6px 0 10px 0;
-      font-style: italic;
-    }
-
-    /* SELECTOR DE HABITACIÓN (Option 1) */
-    .room-selector {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin: 12px 0;
-    }
-
-    .room-option {
-      background: #ffe9c7;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: 0.2s;
-      border: 2px solid transparent;
-    }
-
-    .room-option:hover {
-      background: #ffd59b;
-      transform: translateY(-2px);
-    }
-
-    .room-option.selected {
-      border-color: #ff9f1c;
-      background: #ffdea8;
-    }
-
-    /* BOTÓN RESERVAR + ANIMACIÓN 🐾 */
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #ff9f43;
-      color: white;
-      border-radius: 12px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 0 #cc7d27;
-      transition: 0.3s;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 0 #cc7d27;
-    }
-
-    .paw {
-      position: absolute;
-      font-size: 1.4rem;
-      animation: pawUp 0.8s ease-out forwards;
-      pointer-events: none;
-    }
-
-    @keyframes pawUp {
-      0% { opacity: 1; transform: translateY(0) scale(1); }
-      100% { opacity: 0; transform: translateY(-35px) scale(1.6); }
-    }
-
-    footer {
-      background-color: #ffe0b2;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      z-index: 2;
-      position: relative;
+    @media(max-width:850px){
+      .contenedor{flex-direction:column;align-items:center;}
+      .tarjeta{width:90%;}
     }
   </style>
 </head>
-
 <body>
-
-  <!-- EMOJI BACKGROUND -->
   <div class="emoji-bg" id="emoji-bg"></div>
 
   <header>
@@ -222,138 +90,119 @@
   </header>
 
   <div class="contenedor">
-
-    <!-- GATO 1 -->
+    <!-- Gato 1 -->
     <div class="tarjeta">
-      <img src="descargar1.webp" alt="Luna">
+      <img src="descargar1.webp" alt="Gato Luna">
       <div class="info">
         <h3>Luna</h3>
-
-        <div class="badges">
-          <span class="badge">😻 Cariñosa</span>
-          <span class="badge">🌙 Tranquila</span>
-        </div>
-
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Dormí con Luna, la mejor noche de mi vida.”</p>
-
-        <!-- 房间选择 -->
-        <div class="room-selector">
-          <div class="room-option">🎀 Rosa</div>
-          <div class="room-option">🧭 Aventura</div>
-          <div class="room-option">🌲 Bosque</div>
-          <div class="room-option">🌟 Deluxe</div>
-        </div>
-
-        <a class="btn reservar-btn">Reservar</a>
+        <div class="badges"><span class="badge">😻 Cariñosa</span><span class="badge">🌙 Tranquila</span></div>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Dormí con Luna y fue la noche más relajante de mi vida.”</p>
+        <button class="btn">Reservar</button>
       </div>
     </div>
-
-    <!-- GATO 2 -->
+    <!-- Gato 2 -->
     <div class="tarjeta">
-      <img src="descargar.webp" alt="Max">
+      <img src="descargar.webp" alt="Gato Max">
       <div class="info">
         <h3>Max</h3>
-
-        <div class="badges">
-          <span class="badge">🐾 Juguetón</span>
-          <span class="badge">😺 Sociable</span>
-        </div>
-
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Max jugó conmigo toda la tarde.”</p>
-
-        <div class="room-selector">
-          <div class="room-option">🎀 Rosa</div>
-          <div class="room-option">🧭 Aventura</div>
-          <div class="room-option">🌲 Bosque</div>
-          <div class="room-option">🌟 Deluxe</div>
-        </div>
-
-        <a class="btn reservar-btn">Reservar</a>
+        <div class="badges"><span class="badge">🐾 Juguetón</span><span class="badge">😺 Sociable</span></div>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Max no dejó de jugar, fue increíble.”</p>
+        <button class="btn">Reservar</button>
       </div>
     </div>
-
-    <!-- GATO 3 -->
+    <!-- Gato 3 -->
     <div class="tarjeta">
-      <img src="descargar2.webp" alt="Coco">
+      <img src="descargar2.webp" alt="Gato Coco">
       <div class="info">
         <h3>Coco</h3>
-
-        <div class="badges">
-          <span class="badge">🧠 Inteligente</span>
-          <span class="badge">🐈‍⬛ Curioso</span>
-        </div>
-
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Coco es como un profesor zen.”</p>
-
-        <div class="room-selector">
-          <div class="room-option">🎀 Rosa</div>
-          <div class="room-option">🧭 Aventura</div>
-          <div class="room-option">🌲 Bosque</div>
-          <div class="room-option">🌟 Deluxe</div>
-        </div>
-
-        <a class="btn reservar-btn">Reservar</a>
+        <div class="badges"><span class="badge">🧠 Inteligente</span><span class="badge">🐈‍⬛ Curioso</span></div>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Coco es como un profesor zen con bigotes.”</p>
+        <button class="btn">Reservar</button>
       </div>
     </div>
+  </div>
 
+  <!-- 房间选择 -->
+  <div class="habitaciones">
+    <h3>Selecciona tu habitación</h3>
+    <select id="habitacion">
+      <option value="">-- Elige una habitación --</option>
+      <option value="cozy">Cozy</option>
+      <option value="deluxe">Deluxe</option>
+      <option value="premium">Premium</option>
+    </select>
+    <div id="habitacion-info">
+      <img id="habitacion-imagen" src="">
+      <p id="habitacion-descripcion"></p>
+    </div>
   </div>
 
   <footer>
-    <p>Proyecto escolar — Desarrollado con cariño por Yac0908xx 🐱</p>
+    <p>Proyecto escolar - Desarrollado con cariño por Yac0908xx 🐱</p>
   </footer>
 
-  <!-- 🌟 SCRIPT PARA EMOJIS -->
   <script>
-    const emojiList = ["🐱", "🐾", "😺", "✨", "💛"];
-    const bg = document.getElementById("emoji-bg");
-
-    function crearEmoji() {
-      const e = document.createElement("div");
-      e.classList.add("emoji");
-      e.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
-
-      e.style.left = Math.random() * 100 + "vw";
-      e.style.top = Math.random() * 100 + "vh";
-      e.style.animationDuration = (5 + Math.random() * 4) + "s";
-
+    // 背景 emoji
+    const emojis=["🐱","😺","🐾","✨","💛","🌸","🌟","❤️"];
+    const bg=document.getElementById("emoji-bg");
+    function createEmoji(){
+      const e=document.createElement("div");
+      e.className="emoji";
+      e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      e.style.left=Math.random()*100+"vw";
+      e.style.top=Math.random()*100+"vh";
+      e.style.animationDuration=(5+Math.random()*4)+"s";
       bg.appendChild(e);
-      setTimeout(() => e.remove(), 9000);
+      setTimeout(()=>e.remove(),9000);
     }
-    setInterval(crearEmoji, 400);
-  </script>
+    setInterval(createEmoji,400);
 
-  <!-- 🌟 SCRIPT PARA SELECCIÓN DE HABITACIONES + PAW EFFECT -->
-  <script>
-    /* 房间选中效果 */
-    document.querySelectorAll(".room-selector").forEach(selector => {
-      const options = selector.querySelectorAll(".room-option");
+    // 房间选择
+    const select=document.getElementById('habitacion');
+    const info=document.getElementById('habitacion-info');
+    const img=document.getElementById('habitacion-imagen');
+    const desc=document.getElementById('habitacion-descripcion');
 
-      options.forEach(opt => {
-        opt.addEventListener("click", () => {
-          options.forEach(o => o.classList.remove("selected"));
-          opt.classList.add("selected");
-        });
-      });
+    select.addEventListener('change',()=>{
+      const tipo=select.value;
+      if(tipo==='cozy'){
+        img.src='descargar4.webp';
+        desc.textContent='Habitación Cozy: Pequeña y acogedora 💛';
+        info.style.display='block';
+      } else if(tipo==='deluxe'){
+        img.src='descargar5.webp';
+        desc.textContent='Habitación Deluxe: Espaciosa y luminosa 🌞';
+        info.style.display='block';
+      } else if(tipo==='premium'){
+        img.src='OIP1.webp';
+        desc.textContent='Habitación Premium: Con balcón y juguetes ✨';
+        info.style.display='block';
+      } else{
+        info.style.display='none';
+      }
     });
 
-    /* 小爪爪特效 🐾✨💛 */
-    document.querySelectorAll(".reservar-btn").forEach(btn => {
-      btn.addEventListener("click", function() {
-        const paw = document.createElement("div");
-        paw.classList.add("paw");
-        paw.textContent = ["🐾", "✨", "💛"][Math.floor(Math.random() * 3)];
-        this.appendChild(paw);
-
-        paw.style.left = "50%";
-        paw.style.bottom = "5px";
-        paw.style.transform = "translateX(-50%)";
-
-        setTimeout(() => paw.remove(), 900);
-      });
+    // 小猫爪点击特效
+    function showPaw(event){
+      const paw=document.createElement("div");
+      paw.textContent="🐾";
+      paw.style.position="absolute";
+      paw.style.left=event.pageX+"px";
+      paw.style.top=event.pageY+"px";
+      paw.style.fontSize="2rem";
+      paw.style.opacity="1";
+      paw.style.pointerEvents="none";
+      paw.style.transition="all 1s ease-out";
+      document.body.appendChild(paw);
+      setTimeout(()=>{
+        paw.style.transform="translateY(-50px) scale(1.5)";
+        paw.style.opacity="0";
+      },10);
+      setTimeout(()=>paw.remove(),1000);
+    }
+    document.querySelectorAll(".btn, #habitacion").forEach(el=>{
+      el.addEventListener("click",showPaw);
     });
   </script>
-
 </body>
 </html>
-
-

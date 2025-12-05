@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nuestros Gatos - GatoAirbnb</title>
 
   <style>
@@ -15,15 +15,15 @@
       overflow-x: hidden;
     }
 
-    /* 🌟 FONDO ANIMADO EMOJI */
+    /* 🌟 FONDO DE EMOJIS */
     .emoji-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       pointer-events: none;
+      overflow: hidden;
       z-index: 0;
     }
 
@@ -50,12 +50,10 @@
       position: relative;
       z-index: 2;
     }
-
     header h1 {
       color: #d17b00;
       margin: 0;
     }
-
     nav a {
       text-decoration: none;
       font-weight: 600;
@@ -65,7 +63,7 @@
     }
     nav a:hover { color: #d17b00; }
 
-    /* CONTENIDO */
+    /* CONTENEDOR */
     .contenedor {
       max-width: 1100px;
       margin: 40px auto;
@@ -74,19 +72,19 @@
       flex-wrap: wrap;
       gap: 30px;
       justify-content: center;
-      z-index: 2;
       position: relative;
+      z-index: 2;
     }
 
-    /* TARJETAS DE GATOS */
+    /* TARJETAS */
     .tarjeta {
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       width: 300px;
-      padding-bottom: 20px;
       overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: 0.3s;
+      padding-bottom: 20px;
     }
     .tarjeta:hover {
       transform: scale(1.04);
@@ -104,52 +102,81 @@
     }
 
     .info {
-      padding: 15px 20px;
       text-align: center;
+      padding: 15px;
     }
 
     .info h3 {
-      margin-bottom: 8px;
       color: #d17b00;
+      margin: 5px 0 10px 0;
     }
 
+    /* BADGES */
     .badges {
-      margin-top: 5px;
-      margin-bottom: 12px;
+      margin: 6px 0 12px 0;
     }
-
     .badge {
       display: inline-block;
-      padding: 3px 10px;
       background: #ffd9a3;
       color: #a06000;
+      padding: 4px 10px;
       border-radius: 12px;
       font-size: 0.75rem;
       margin: 2px;
       font-weight: 600;
     }
 
-    /* REVIEWS */
+    /* REVIEW */
     .review {
       font-size: 0.85rem;
-      margin-top: 8px;
       color: #555;
+      margin: 6px 0 10px 0;
       font-style: italic;
     }
 
-    /* BOTÓN RESERVAR 3D */
+    /* SELECTOR DE HABITACIÓN (Option 1) */
+    .room-selector {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .room-option {
+      background: #ffe9c7;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .room-option:hover {
+      background: #ffd59b;
+      transform: translateY(-2px);
+    }
+
+    .room-option.selected {
+      border-color: #ff9f1c;
+      background: #ffdea8;
+    }
+
+    /* BOTÓN RESERVAR + ANIMACIÓN 🐾 */
     .btn {
       display: inline-block;
-      margin-top: 12px;
       padding: 12px 20px;
-      font-size: 1rem;
-      font-weight: bold;
       background-color: #ff9f43;
       color: white;
       border-radius: 12px;
+      font-weight: bold;
       text-decoration: none;
-      transition: 0.3s;
       box-shadow: 0 4px 0 #cc7d27;
+      transition: 0.3s;
+      position: relative;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -157,23 +184,34 @@
       box-shadow: 0 6px 0 #cc7d27;
     }
 
+    .paw {
+      position: absolute;
+      font-size: 1.4rem;
+      animation: pawUp 0.8s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes pawUp {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-35px) scale(1.6); }
+    }
+
     footer {
       background-color: #ffe0b2;
       text-align: center;
       padding: 15px;
       margin-top: 40px;
-      position: relative;
       z-index: 2;
+      position: relative;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- EMOJI DE FONDO -->
+  <!-- EMOJI BACKGROUND -->
   <div class="emoji-bg" id="emoji-bg"></div>
 
-  <!-- HEADER -->
   <header>
     <h1>🐱 Nuestros Gatos 🐱</h1>
     <nav>
@@ -183,12 +221,11 @@
     </nav>
   </header>
 
-  <!-- CONTENIDO -->
   <div class="contenedor">
 
     <!-- GATO 1 -->
     <div class="tarjeta">
-      <img src="descargar1.webp" alt="Gato Luna">
+      <img src="descargar1.webp" alt="Luna">
       <div class="info">
         <h3>Luna</h3>
 
@@ -197,15 +234,23 @@
           <span class="badge">🌙 Tranquila</span>
         </div>
 
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Dormí con Luna y fue la noche más relajante de mi vida.”</p>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Dormí con Luna, la mejor noche de mi vida.”</p>
 
-        <a href="#" class="btn">Reservar</a>
+        <!-- 房间选择 -->
+        <div class="room-selector">
+          <div class="room-option">🎀 Rosa</div>
+          <div class="room-option">🧭 Aventura</div>
+          <div class="room-option">🌲 Bosque</div>
+          <div class="room-option">🌟 Deluxe</div>
+        </div>
+
+        <a class="btn reservar-btn">Reservar</a>
       </div>
     </div>
 
     <!-- GATO 2 -->
     <div class="tarjeta">
-      <img src="descargar.webp" alt="Gato Max">
+      <img src="descargar.webp" alt="Max">
       <div class="info">
         <h3>Max</h3>
 
@@ -214,15 +259,22 @@
           <span class="badge">😺 Sociable</span>
         </div>
 
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Max no dejó de jugar, fue increíble.”</p>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Max jugó conmigo toda la tarde.”</p>
 
-        <a href="#" class="btn">Reservar</a>
+        <div class="room-selector">
+          <div class="room-option">🎀 Rosa</div>
+          <div class="room-option">🧭 Aventura</div>
+          <div class="room-option">🌲 Bosque</div>
+          <div class="room-option">🌟 Deluxe</div>
+        </div>
+
+        <a class="btn reservar-btn">Reservar</a>
       </div>
     </div>
 
     <!-- GATO 3 -->
     <div class="tarjeta">
-      <img src="descargar2.webp" alt="Gato Coco">
+      <img src="descargar2.webp" alt="Coco">
       <div class="info">
         <h3>Coco</h3>
 
@@ -231,21 +283,28 @@
           <span class="badge">🐈‍⬛ Curioso</span>
         </div>
 
-        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Coco es como un profesor zen con bigotes.”</p>
+        <p class="review">⭐️⭐️⭐️⭐️⭐️ — “Coco es como un profesor zen.”</p>
 
-        <a href="#" class="btn">Reservar</a>
+        <div class="room-selector">
+          <div class="room-option">🎀 Rosa</div>
+          <div class="room-option">🧭 Aventura</div>
+          <div class="room-option">🌲 Bosque</div>
+          <div class="room-option">🌟 Deluxe</div>
+        </div>
+
+        <a class="btn reservar-btn">Reservar</a>
       </div>
     </div>
 
   </div>
 
   <footer>
-    <p>Proyecto escolar - Desarrollado con cariño por Yac0908xx 🐱</p>
+    <p>Proyecto escolar — Desarrollado con cariño por Yac0908xx 🐱</p>
   </footer>
 
-  <!-- SCRIPT EMOJI RANDOM -->
+  <!-- 🌟 SCRIPT PARA EMOJIS -->
   <script>
-    const emojiList = ["🐱", "😺", "🐾", "✨", "💛"];
+    const emojiList = ["🐱", "🐾", "😺", "✨", "💛"];
     const bg = document.getElementById("emoji-bg");
 
     function crearEmoji() {
@@ -260,10 +319,41 @@
       bg.appendChild(e);
       setTimeout(() => e.remove(), 9000);
     }
-
     setInterval(crearEmoji, 400);
+  </script>
+
+  <!-- 🌟 SCRIPT PARA SELECCIÓN DE HABITACIONES + PAW EFFECT -->
+  <script>
+    /* 房间选中效果 */
+    document.querySelectorAll(".room-selector").forEach(selector => {
+      const options = selector.querySelectorAll(".room-option");
+
+      options.forEach(opt => {
+        opt.addEventListener("click", () => {
+          options.forEach(o => o.classList.remove("selected"));
+          opt.classList.add("selected");
+        });
+      });
+    });
+
+    /* 小爪爪特效 🐾✨💛 */
+    document.querySelectorAll(".reservar-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        const paw = document.createElement("div");
+        paw.classList.add("paw");
+        paw.textContent = ["🐾", "✨", "💛"][Math.floor(Math.random() * 3)];
+        this.appendChild(paw);
+
+        paw.style.left = "50%";
+        paw.style.bottom = "5px";
+        paw.style.transform = "translateX(-50%)";
+
+        setTimeout(() => paw.remove(), 900);
+      });
+    });
   </script>
 
 </body>
 </html>
+
 

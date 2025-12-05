@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,6 +14,29 @@
       text-align: center;
       overflow-x: hidden;
       position: relative;
+    }
+
+    /* 🌟 Fondo suave de huellitas */
+    #paw-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .paw-bg-item {
+      position: absolute;
+      opacity: 0.18;
+      animation: floatSlow linear infinite;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translateY(120vh) rotate(0deg); }
+      100% { transform: translateY(-20vh) rotate(360deg); }
     }
 
     header {
@@ -142,7 +164,7 @@
       font-size: 0.9em;
     }
 
-    /* ✨ Animación de huellitas */
+    /* 🐾 Animación del clic */
     .paw {
       position: absolute;
       font-size: 2rem;
@@ -157,6 +179,10 @@
   </style>
 </head>
 <body>
+
+  <!-- 🌟 CONTENEDOR DE HUELLAS SUAVES -->
+  <div id="paw-bg"></div>
+
   <header>
     <h1>🐾 Nuestros Gatos - GatoAirbnb 🐾</h1>
     <nav>
@@ -170,21 +196,21 @@
     <div class="gato">
       <img src="descargar2.webp" alt="Michi Deluxe">
       <h3>Michi Deluxe</h3>
-      <p>Michi Deluxe es un gato tranquilo y cariñoso que ama dormir junto a la ventana. Le encanta recibir caricias suaves y ronronear mientras te acompaña a leer o tomar un café. Ideal para quienes buscan paz, ternura y compañía silenciosa. 💛</p>
+      <p>Michi Deluxe es un gato tranquilo y cariñoso que ama dormir junto a la ventana. Le encanta recibir caricias suaves y ronronear mientras te acompaña. 💛</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
 
     <div class="gato">
       <img src="OIP.webp" alt="Pelusa Suite">
       <h3>Pelusa Suite</h3>
-      <p>Pelusa es pura energía y alegría. Le encanta explorar, jugar con sus pelotitas y esconderse en los rincones más curiosos. Siempre lista para una aventura o para recibirte con un salto feliz. Perfecta para familias o espíritus activos. 🎾</p>
+      <p>Pelusa es pura energía, le encanta explorar y jugar. Perfecta para familias o espíritus activos. 🎾</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
 
     <div class="gato">
       <img src="descargar3.webp" alt="Bigotes Loft">
       <h3>Bigotes Loft</h3>
-      <p>Bigotes es el explorador del grupo. Le encanta mirar por la ventana y observar todo con una calma curiosa. Es independiente, pero cuando te elige, no se despega. Le gusta dormir en lo alto y compartir momentos de tranquilidad. 🌞</p>
+      <p>Bigotes es observador, independiente y lleno de calma. Ideal para momentos tranquilos. 🌞</p>
       <button class="boton-reservar">Reservar este gato</button>
     </div>
   </section>
@@ -240,7 +266,7 @@
       }
     });
 
-    // 🐾 Efecto de huellitas al hacer clic en "Reservar"
+    // 🐾 Efecto de huellas al hacer clic
     function showPaw(event) {
       const paw = document.createElement('div');
       paw.textContent = '🐾';
@@ -255,26 +281,28 @@
     document.querySelectorAll('.boton-reservar').forEach(btn => {
       btn.addEventListener('click', showPaw);
     });
-  </script>
-  <script>
-  // 🐾 Generador automático de huellitas animadas
-  const pawBg = document.getElementById('paw-bg');
 
-  function crearPaw() {
-    const paw = document.createElement('div');
-    paw.textContent = '🐾';
-    paw.classList.add('paw');
-    paw.style.left = Math.random() * 100 + 'vw';
-    paw.style.top = Math.random() * 100 + 'vh';
-    paw.style.animationDuration = (4 + Math.random() * 4) + 's';
-    pawBg.appendChild(paw);
-    setTimeout(() => paw.remove(), 8000);
-    // Crear huellitas cada 400 ms
-     }
-    
-  setInterval(crearPaw, 400);
-</script>
+    // 🌟 Fondo suave de huellitas
+    const pawBg = document.getElementById('paw-bg');
+
+    function crearPawFondo() {
+      const paw = document.createElement('div');
+      paw.textContent = '🐾';
+      paw.classList.add('paw-bg-item');
+
+      paw.style.left = Math.random() * 100 + 'vw';
+      paw.style.fontSize = (1.8 + Math.random() * 0.7) + 'rem';
+      paw.style.animationDuration = (8 + Math.random() * 6) + 's';
+
+      pawBg.appendChild(paw);
+
+      setTimeout(() => paw.remove(), 15000);
+    }
+
+    setInterval(crearPawFondo, 900);
+  </script>
 
 </body>
 </html>
+
 

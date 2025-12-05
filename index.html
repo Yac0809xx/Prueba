@@ -15,51 +15,198 @@
       --text-color:#333;
     }
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Poppins',sans-serif;background:var(--background-color);color:var(--text-color);line-height:1.6;overflow-x:hidden;position:relative;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(to bottom,#fffaf0,#ffe8d6);
+      color:var(--text-color);
+      line-height:1.6;
+      overflow-x:hidden;
+      position:relative;
+    }
     a{text-decoration:none;}
-    header{background:linear-gradient(90deg,#ffe082,#ffd1dc);padding:20px 10px;text-align:center;border-bottom:3px solid var(--primary-color);box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;z-index:2;}
-    header h1{color:var(--secondary-color);font-size:2.5rem;margin-bottom:10px;}
-    nav a{color:var(--text-color);margin:0 10px;font-weight:600;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,0.7);transition:0.3s;}
-    nav a:hover{background:var(--primary-color);color:#fff;}
+    header{
+      background:linear-gradient(90deg,#ffe082,#ffd1dc);
+      padding:20px 10px;
+      text-align:center;
+      border-bottom:3px solid var(--primary-color);
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      position:relative;
+      z-index:2;
+    }
+    header h1{
+      color:var(--secondary-color);
+      font-size:2.5rem;
+      margin-bottom:10px;
+    }
+    nav a{
+      color:var(--text-color);
+      margin:0 10px;
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.7);
+      transition:0.3s;
+    }
+    nav a:hover{
+      background:var(--primary-color);
+      color:#fff;
+    }
 
-    .hero{padding:60px 20px;text-align:center;position:relative;}
-    .hero h2{font-size:2rem;color:var(--secondary-color);margin-bottom:15px;}
-    .hero p{font-size:1.2rem;max-width:600px;margin:0 auto 20px;}
-    .hero .button{background:var(--primary-color);color:#fff;padding:10px 20px;border-radius:10px;font-weight:600;transition:0.3s;cursor:pointer;}
-    .hero .button:hover{background:var(--accent-color);}
+    /* ---------------- HERO ---------------- */
+    .hero{
+      padding:80px 20px;
+      text-align:center;
+      position:relative;
+      background:url('header-cat.jpg') center/cover no-repeat;
+      border-bottom:4px solid #ffc999;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:0;left:0;width:100%;height:100%;
+      background:rgba(255,255,255,0.75);
+      backdrop-filter:blur(2px);
+      z-index:0;
+    }
+    .hero > *{position:relative;z-index:1;}
 
-    .search-bar{margin-top:20px;}
-    .search-bar input{padding:10px;width:250px;border-radius:8px;border:1px solid #ccc;}
-    .search-bar button{padding:10px 15px;margin-left:10px;border:none;background:var(--primary-color);color:#fff;border-radius:8px;font-weight:600;cursor:pointer;}
-    .search-bar button:hover{background:var(--accent-color);}
+    .hero h2{
+      font-size:2.2rem;
+      color:var(--secondary-color);
+      margin-bottom:15px;
+    }
+    .hero p{
+      font-size:1.15rem;
+      max-width:650px;
+      margin:0 auto 20px;
+    }
+    .hero .button{
+      background:var(--primary-color);
+      color:#fff;
+      padding:14px 26px;
+      border-radius:14px;
+      font-weight:600;
+      font-size:1.1rem;
+      transition:0.25s;
+      cursor:pointer;
+      display:inline-block;
+      transform:scale(1);
+    }
+    .hero .button:hover{
+      background:var(--accent-color);
+      transform:scale(1.05);
+    }
 
-    .seccion,.cards-container{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;max-width:1100px;margin:40px auto;padding:20px;}
-    .seccion{background:var(--card-bg);border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-    .seccion img{width:400px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-    .texto{max-width:500px;text-align:left;}
+    /* 搜索栏 */
+    .search-bar{
+      margin-top:25px;
+    }
+    .search-bar input{
+      padding:10px;
+      width:260px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+    .search-bar button{
+      padding:10px 15px;
+      margin-left:10px;
+      border:none;
+      background:var(--primary-color);
+      color:#fff;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .search-bar button:hover{
+      background:var(--accent-color);
+    }
+
+    /* ---------------- SECCIONES ---------------- */
+    .seccion,.cards-container{
+      display:flex;
+      flex-wrap:wrap;
+      gap:40px;
+      justify-content:center;
+      max-width:1100px;
+      margin:40px auto;
+      padding:20px;
+    }
+    .seccion{
+      background:var(--card-bg);
+      border-radius:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s ease;
+    }
+    .seccion.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .seccion img{
+      width:400px;
+      border-radius:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+    .texto{
+      max-width:500px;
+      text-align:left;
+    }
     .texto h2{color:var(--secondary-color);margin-bottom:10px;}
     .texto p{line-height:1.7;color:#444;}
     .invertido{flex-direction:row-reverse;}
 
-    .emoji-bg{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:0;}
-    .emoji{position:absolute;font-size:2rem;opacity:0;animation:floatEmoji 6s ease-in-out infinite;}
-    @keyframes floatEmoji{0%{transform:translateY(20px) scale(1);opacity:0;}20%{opacity:1;}80%{opacity:1;}100%{transform:translateY(-40px) scale(1.4);opacity:0;}}
+    /* ---------------- TARJETAS ---------------- */
+    .cards-container{
+      margin-top:10px;
+    }
+    .card{
+      width:280px;
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+      opacity:0;
+      transform:translateY(40px);
+    }
+    .card.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .card:hover{
+      transform:scale(1.05);
+      box-shadow:0 6px 14px rgba(0,0,0,0.15);
+    }
+    .card h3{
+      font-size:1.3rem;
+      margin-bottom:10px;
+      color:var(--secondary-color);
+    }
 
-    footer{text-align:center;background:linear-gradient(90deg,#ffe0b2,#ffd1dc);padding:15px;margin-top:50px;font-size:0.9em;border-top:3px solid #ffb6b9;box-shadow:0 -3px 10px rgba(0,0,0,0.05);}
+    footer{
+      text-align:center;
+      background:linear-gradient(90deg,#ffe0b2,#ffd1dc);
+      padding:15px;
+      margin-top:50px;
+      font-size:0.9em;
+      border-top:3px solid #ffb6b9;
+      box-shadow:0 -3px 10px rgba(0,0,0,0.05);
+    }
 
     @media(max-width:850px){
       .seccion{flex-direction:column;text-align:center;}
       .invertido{flex-direction:column;}
       .seccion img{width:90%;}
       .texto{text-align:center;}
-      .hero h2{font-size:1.6rem;}
+      .hero h2{font-size:1.8rem;}
       .hero p{font-size:1rem;}
     }
   </style>
 </head>
 <body>
-  <!-- 背景 Emoji -->
-  <div class="emoji-bg" id="emoji-bg"></div>
 
   <header>
     <h1>🐾 Bienvenidos a GatoAirbnb 🐾</h1>
@@ -70,6 +217,7 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <h2>¡Tu estancia con gatitos comienza aquí!</h2>
     <p>GatoAirbnb ofrece habitaciones únicas acompañadas de adorables gatos residentes. Relájate, juega y disfruta de momentos especiales junto a nuestros felinos.</p>
@@ -81,6 +229,7 @@
     </div>
   </section>
 
+  <!-- SECCIONES ORIGINALES -->
   <section class="seccion">
     <img src="descargar.webp" alt="Habitación de GatoAirbnb">
     <div class="texto">
@@ -97,27 +246,28 @@
     </div>
   </section>
 
+  <!-- NUEVA SECCIÓN DE TARJETAS -->
+  <section class="cards-container">
+    <div class="card">
+      <h3>🐾 Gatos Residentes</h3>
+      <p>Convive con gatitos amigables durante tu estancia.</p>
+    </div>
+    <div class="card">
+      <h3>🛏️ Habitaciones Cómodas</h3>
+      <p>Espacios limpios, amplios y tranquilos para descansar.</p>
+    </div>
+    <div class="card">
+      <h3>❤️ Cuidado 24/7</h3>
+      <p>Ambiente seguro y supervisión constante.</p>
+    </div>
+  </section>
+
   <footer>
     <p>🌸 Proyecto escolar - Desarrollado con cariño por <strong>Yac0908xx</strong> 🐱</p>
   </footer>
 
   <script>
-    // Emoji 背景
-    const emojis=["🐱","😺","🐾","✨","💛","🌸","🌟","❤️"];
-    const bg=document.getElementById("emoji-bg");
-    function createEmoji(){
-      const e=document.createElement("div");
-      e.className="emoji";
-      e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-      e.style.left=Math.random()*100+"vw";
-      e.style.top=Math.random()*100+"vh";
-      e.style.animationDuration=(5+Math.random()*4)+"s";
-      bg.appendChild(e);
-      setTimeout(()=>e.remove(),9000);
-    }
-    setInterval(createEmoji,400);
-
-    // 搜索功能
+    // 搜索功能（保留你的原版）
     function searchPage(){
       const val=document.getElementById("searchInput").value.toLowerCase();
       if(val.includes("gato")) window.location.href="gatos.html";
@@ -126,29 +276,19 @@
       else alert("No se encontró ninguna página relacionada 😿");
     }
 
-    // 小猫爪点击特效
-    function showPaw(event){
-      const paw=document.createElement("div");
-      paw.textContent="🐾";
-      paw.style.position="absolute";
-      paw.style.left=event.pageX+"px";
-      paw.style.top=event.pageY+"px";
-      paw.style.fontSize="2rem";
-      paw.style.opacity="1";
-      paw.style.pointerEvents="none";
-      paw.style.transition="all 1s ease-out";
-      document.body.appendChild(paw);
-      setTimeout(()=>{
-        paw.style.transform="translateY(-50px) scale(1.5)";
-        paw.style.opacity="0";
-      },10);
-      setTimeout(()=>paw.remove(),1000);
+    // 滚动淡入动画
+    const revealElements = document.querySelectorAll('.seccion, .card');
+
+    function revealOnScroll(){
+      const windowH = window.innerHeight;
+      revealElements.forEach(el=>{
+        const pos = el.getBoundingClientRect().top;
+        if(pos < windowH - 100) el.classList.add('visible');
+      });
     }
-    document.querySelectorAll(".button, .search-bar button").forEach(btn=>{
-      btn.addEventListener("click",showPaw);
-    });
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
   </script>
+
 </body>
 </html>
-
-

@@ -6,90 +6,59 @@
   <title>Bienvenidos - GatoAirbnb</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #ff9f43;
-      --secondary: #d17b00;
-      --accent: #ff80ab;
-      --bg: #fff8f0;
-      --card: #fff;
-      --text: #333;
+    :root{
+      --primary-color:#ff9f1c;
+      --secondary-color:#d17b00;
+      --accent-color:#ff80ab;
+      --background-color:#fffaf0;
+      --card-bg:#fff;
+      --text-color:#333;
     }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; position: relative; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:var(--background-color);color:var(--text-color);line-height:1.6;overflow-x:hidden;position:relative;}
+    a{text-decoration:none;}
+    header{background:linear-gradient(90deg,#ffe082,#ffd1dc);padding:20px 10px;text-align:center;border-bottom:3px solid var(--primary-color);box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;z-index:2;}
+    header h1{color:var(--secondary-color);font-size:2.5rem;margin-bottom:10px;}
+    nav a{color:var(--text-color);margin:0 10px;font-weight:600;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,0.7);transition:0.3s;}
+    nav a:hover{background:var(--primary-color);color:#fff;}
 
-    /* 背景漂浮 emoji */
-    .emoji-bg { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
-    .emoji {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0;
-      animation: floatEmoji 6s ease-in-out infinite;
-    }
-    @keyframes floatEmoji {
-      0% { transform: translateY(20px) scale(1); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
-    }
+    .hero{padding:60px 20px;text-align:center;position:relative;}
+    .hero h2{font-size:2rem;color:var(--secondary-color);margin-bottom:15px;}
+    .hero p{font-size:1.2rem;max-width:600px;margin:0 auto 20px;}
+    .hero .button{background:var(--primary-color);color:#fff;padding:10px 20px;border-radius:10px;font-weight:600;transition:0.3s;cursor:pointer;}
+    .hero .button:hover{background:var(--accent-color);}
 
-    header {
-      background: linear-gradient(90deg,#ffe082,#ffd1dc);
-      padding:25px;
-      text-align:center;
-      border-bottom:3px solid var(--primary);
-      position: relative;
-      z-index:2;
-    }
-    header h1 { color: var(--secondary); font-size:2.5rem; margin-bottom:10px; animation: breathe 2s ease-in-out infinite; }
-    @keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .search-bar{margin-top:20px;}
+    .search-bar input{padding:10px;width:250px;border-radius:8px;border:1px solid #ccc;}
+    .search-bar button{padding:10px 15px;margin-left:10px;border:none;background:var(--primary-color);color:#fff;border-radius:8px;font-weight:600;cursor:pointer;}
+    .search-bar button:hover{background:var(--accent-color);}
 
-    nav a {
-      text-decoration:none;
-      color: var(--text);
-      margin:0 12px;
-      font-weight:600;
-      padding:6px 12px;
-      border-radius:8px;
-      background:rgba(255,255,255,0.7);
-      transition:0.3s;
-    }
-    nav a:hover { background: var(--primary); color:#fff; }
+    .seccion,.cards-container{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;max-width:1100px;margin:40px auto;padding:20px;}
+    .seccion{background:var(--card-bg);border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+    .seccion img{width:400px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+    .texto{max-width:500px;text-align:left;}
+    .texto h2{color:var(--secondary-color);margin-bottom:10px;}
+    .texto p{line-height:1.7;color:#444;}
+    .invertido{flex-direction:row-reverse;}
 
-    /* Hero */
-    .hero { padding:60px 20px; text-align:center; z-index:2; position: relative; }
-    .hero h2 { font-size:2rem; color:var(--secondary); margin-bottom:15px; }
-    .hero p { font-size:1.2rem; max-width:600px; margin:0 auto 20px; }
-    .hero .button { background:var(--primary); color:#fff; padding:12px 22px; border-radius:12px; font-weight:600; display:inline-block; transition:0.3s; }
-    .hero .button:hover { background: var(--accent); }
+    .emoji-bg{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:0;}
+    .emoji{position:absolute;font-size:2rem;opacity:0;animation:floatEmoji 6s ease-in-out infinite;}
+    @keyframes floatEmoji{0%{transform:translateY(20px) scale(1);opacity:0;}20%{opacity:1;}80%{opacity:1;}100%{transform:translateY(-40px) scale(1.4);opacity:0;}}
 
-    /* 搜索栏 */
-    .search-bar { margin:20px auto; max-width:400px; display:flex; gap:10px; justify-content:center; }
-    .search-bar input { flex:1; padding:10px 15px; border-radius:10px; border:1px solid #ccc; }
-    .search-bar button { padding:10px 18px; border:none; border-radius:10px; background:var(--primary); color:#fff; font-weight:600; cursor:pointer; transition:0.3s; }
-    .search-bar button:hover { background: var(--accent); }
+    footer{text-align:center;background:linear-gradient(90deg,#ffe0b2,#ffd1dc);padding:15px;margin-top:50px;font-size:0.9em;border-top:3px solid #ffb6b9;box-shadow:0 -3px 10px rgba(0,0,0,0.05);}
 
-    /* 卡片入口 */
-    .cards-container { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; max-width:1100px; margin:40px auto; z-index:2; position: relative; }
-    .card { background: var(--card); border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:260px; padding:20px; text-align:center; transition:0.3s; }
-    .card:hover { transform: scale(1.05); box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-    .card h3 { color: var(--secondary); margin-bottom:12px; }
-    .card p { color:#555; font-size:0.95rem; margin-bottom:15px; }
-    .card a { display:inline-block; padding:8px 18px; background:var(--primary); color:#fff; border-radius:10px; font-weight:600; transition:0.3s; text-decoration:none; }
-    .card a:hover { background: var(--accent); }
-
-    footer { text-align:center; background:linear-gradient(90deg,#ffe0b2,#ffd1dc); padding:15px; margin-top:50px; font-size:0.9em; border-top:3px solid #ffb6b9; box-shadow:0 -3px 10px rgba(0,0,0,0.05); }
-
-    /* Responsive */
     @media(max-width:850px){
-      .cards-container { flex-direction:column; align-items:center; }
-      .hero h2 { font-size:1.6rem; }
-      .hero p { font-size:1rem; }
+      .seccion{flex-direction:column;text-align:center;}
+      .invertido{flex-direction:column;}
+      .seccion img{width:90%;}
+      .texto{text-align:center;}
+      .hero h2{font-size:1.6rem;}
+      .hero p{font-size:1rem;}
     }
   </style>
 </head>
 <body>
-
-  <!-- 背景 emoji -->
+  <!-- 背景 Emoji -->
   <div class="emoji-bg" id="emoji-bg"></div>
 
   <header>
@@ -102,32 +71,29 @@
   </header>
 
   <section class="hero">
-    <h2>¡Tu estancia con gatitos comienza aquí! 💛</h2>
-    <p>Relájate y disfruta momentos únicos junto a nuestros adorables gatos residentes en GatoAirbnb.</p>
+    <h2>¡Tu estancia con gatitos comienza aquí!</h2>
+    <p>GatoAirbnb ofrece habitaciones únicas acompañadas de adorables gatos residentes. Relájate, juega y disfruta de momentos especiales junto a nuestros felinos.</p>
+    <button class="button" onclick="window.location.href='gatos.html'">Ver nuestros gatos</button>
 
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Buscar gatos, seguridad...">
-      <button onclick="searchPage()">🔍 Buscar</button>
+      <input type="text" id="searchInput" placeholder="Buscar...">
+      <button onclick="searchPage()">Buscar</button>
     </div>
-
-    <a href="gatos.html" class="button">Ver nuestros gatos</a>
   </section>
 
-  <section class="cards-container">
-    <div class="card">
-      <h3>🐱 Gatos</h3>
-      <p>Descubre todos nuestros adorables felinos y elige tu favorito.</p>
-      <a href="gatos.html">Ver gatos</a>
+  <section class="seccion">
+    <img src="descargar.webp" alt="Habitación de GatoAirbnb">
+    <div class="texto">
+      <h2>¿Qué es GatoAirbnb?</h2>
+      <p>Un alojamiento inspirado en Airbnb con un toque especial: ¡cada habitación tiene su propio gato residente! Vive una experiencia cálida, divertida y relajante.</p>
     </div>
-    <div class="card">
-      <h3>🛡️ Seguridad</h3>
-      <p>Conoce nuestras normas y cómo cuidamos a tus gatos y a ti.</p>
-      <a href="seguridad.html">Ver seguridad</a>
-    </div>
-    <div class="card">
-      <h3>📅 Reservar</h3>
-      <p>Reserva tu habitación con gato y vive la experiencia completa.</p>
-      <a href="gatos.html">Reservar ahora</a>
+  </section>
+
+  <section class="seccion invertido">
+    <img src="descargar1.webp" alt="Gato descansando feliz">
+    <div class="texto">
+      <h2>¿Por qué lo hacemos?</h2>
+      <p>Creemos que los gatos transmiten calma y alegría. Queremos crear momentos únicos donde humanos y gatos disfruten juntos, fomentando amor y respeto hacia los animales.</p>
     </div>
   </section>
 
@@ -136,32 +102,53 @@
   </footer>
 
   <script>
-    // Emoji 背景动画
-    const emojis = ["🐱","😺","🐾","✨","💛","🌸","🌟","❤️"];
-    const bg = document.getElementById("emoji-bg");
+    // Emoji 背景
+    const emojis=["🐱","😺","🐾","✨","💛","🌸","🌟","❤️"];
+    const bg=document.getElementById("emoji-bg");
     function createEmoji(){
-      const e = document.createElement("div");
+      const e=document.createElement("div");
       e.className="emoji";
-      e.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-      e.style.left = Math.random()*100 + "vw";
-      e.style.top = Math.random()*100 + "vh";
-      e.style.animationDuration = (5+Math.random()*4)+"s";
+      e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      e.style.left=Math.random()*100+"vw";
+      e.style.top=Math.random()*100+"vh";
+      e.style.animationDuration=(5+Math.random()*4)+"s";
       bg.appendChild(e);
       setTimeout(()=>e.remove(),9000);
     }
     setInterval(createEmoji,400);
 
-    // 搜索栏跳转
+    // 搜索功能
     function searchPage(){
-      const val = document.getElementById("searchInput").value.toLowerCase();
+      const val=document.getElementById("searchInput").value.toLowerCase();
       if(val.includes("gato")) window.location.href="gatos.html";
       else if(val.includes("seguridad")) window.location.href="seguridad.html";
       else if(val.includes("reservar")) window.location.href="gatos.html";
       else alert("No se encontró ninguna página relacionada 😿");
     }
+
+    // 小猫爪点击特效
+    function showPaw(event){
+      const paw=document.createElement("div");
+      paw.textContent="🐾";
+      paw.style.position="absolute";
+      paw.style.left=event.pageX+"px";
+      paw.style.top=event.pageY+"px";
+      paw.style.fontSize="2rem";
+      paw.style.opacity="1";
+      paw.style.pointerEvents="none";
+      paw.style.transition="all 1s ease-out";
+      document.body.appendChild(paw);
+      setTimeout(()=>{
+        paw.style.transform="translateY(-50px) scale(1.5)";
+        paw.style.opacity="0";
+      },10);
+      setTimeout(()=>paw.remove(),1000);
+    }
+    document.querySelectorAll(".button, .search-bar button").forEach(btn=>{
+      btn.addEventListener("click",showPaw);
+    });
   </script>
 </body>
 </html>
-
 
 
